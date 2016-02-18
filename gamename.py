@@ -10,7 +10,7 @@ client.login(email, password)
 @client.event
 def on_message(message):
     if message.author.id == client.user.id:
-        if message.content.startswith("$game "):
+        if message.content.startswith("!game "):
             input_ = message.content
             input_.split(" ")[0]
             stuff = input_.split(" ")[1:]
