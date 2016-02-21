@@ -2,11 +2,11 @@ import discord
 import requests
 import subprocess
 
-email = "put email here"
-password = "put password her"
+inEmail = input("email: ")
+inPassword = input("password: ")
 
 client = discord.Client()
-client.login(email, password)
+client.login(inEmail, inPassword)
 @client.event
 def on_message(message):
     if message.author.id == client.user.id:
