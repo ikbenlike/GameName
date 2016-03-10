@@ -28,6 +28,6 @@ tested with Python version 3.4
 the folder py35 contains a version of the script compatible with api  v0.10.0
 and withe python version 3.5.x
 
-install v0.10.0 of the api with the following git command:
-git install git+https://github.com/Rapptz/discord.py@async
+install v0.10.0 of the api with the following pip command:
+pip install git+https://github.com/Rapptz/discord.py@async
 (this requires git to be installed on your system)
