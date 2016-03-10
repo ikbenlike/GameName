@@ -1,16 +1,22 @@
 import discord
 import requests
 import subprocess
-
+import os
+import asyncio
 
 inEmail = input("email: ")
 inPassword = input("password: ")
 
+if os.name == "posix":
+    os.system("clear")
+elif os.name == "nt":
+    os.system("cls")
+
 
 client = discord.Client()
-client.login(inEmail, inPassword)
+
 @client.event
-def on_message(message):
+async def on_message(message):
     if message.author.id == client.user.id:
         if message.content.startswith("!game "):
             input_ = message.content
@@ -19,8 +25,10 @@ def on_message(message):
             gameName = (" ".join(stuff))
             game = discord.Game()
             game.name = gameName
-            client.change_status(game=game)
-            client.send_message(message.channel, client.user.name + "'s game has been set to " + gameName)
+            await client.change_status(game=game)
+            await client.send_message(message.channel, client.user.name + "'s game has been set to " + gameName)
             print("game has been set to" + gameName)
+        if message.content.startswith("!exit"):
+            await client.logout()
 
-client.run()
+client.run(inEmail, inPassword)
